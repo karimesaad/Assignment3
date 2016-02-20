@@ -8,14 +8,21 @@ public class Clothing extends Item
 	float calculatePrice () 
 	{
 		float final_price = 0;
-		// Insert price calculation here
+		final_price = (price * quantity) + calculateShipping() + calculateTax();
 		return final_price;
 	}
 	
-	void printItemAttributes () 
+	float calculateShipping () {
+		return ((20 * weight)) * quantity;
+	}
+	
+	float calculateTax() {
+		return (price * quantity) * 0.1;
+	}
+	
+	/*void printItemAttributes () 
 	{
 		//Print all applicable attributes of this sub-class
 	}
-	
-
+	*/
 }
