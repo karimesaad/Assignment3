@@ -13,7 +13,7 @@ public class Electronics extends Item
 	
 	float calculatePrice() {
 		float final_price = 0;
-		final_price = super.calculatePrice();
+		final_price = super.calculatePrice()();
 		if(fragile == true) {
 			final_price += premiumShipping();
 		}
