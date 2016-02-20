@@ -10,6 +10,43 @@ public class Item
 
 // You will need a constructor (Why?). Create it here.
 	
+//  Getters and Setters
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+	
+	
+//  Class Methods
+	
 	float calculatePrice () 
 	{
 		float final_price = quantity * price;
@@ -21,5 +58,6 @@ public class Item
 	{
 		//Print all applicable attributes of this class
 	}
+
 
 }
