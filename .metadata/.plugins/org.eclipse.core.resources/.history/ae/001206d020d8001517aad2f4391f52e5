@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.*;
 
 public class ShoppingCartDriver 
@@ -41,7 +40,7 @@ public class ShoppingCartDriver
 		  
 		  
 		  
-
+		// TODO Auto-generated method stub
 		
 		//Open file; file name specified in args (command line)
 		

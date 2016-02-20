@@ -69,18 +69,9 @@ public Item(String name, float price, int quantity, int weight) {
 		return (float) ((standardShipping()) * 0.2) ;
 	}
 
-	float calculateTax (){
-		return (float) (price * quantity * .1);
-	}
-	
 	void printItemAttributes () 
 	{
-		System.out.println("Name: " + name);
-		System.out.println("Price: " + price);
-		System.out.println("Quantity: " + quantity);
-		System.out.println("Weight: " + weight);
-		
-		
+		//Print all applicable attributes of this class
 	}
 
 
