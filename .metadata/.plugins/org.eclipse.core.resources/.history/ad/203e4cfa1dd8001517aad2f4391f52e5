@@ -61,13 +61,6 @@ public Item(String name, float price, int quantity, int weight) {
 		return final_price;
 	}
 	
-	float standardShipping(){
-		return (20 * weight) * quantity;
-	}
-	
-	float premiumShipping(){
-		return (float) ((standardShipping()) * 0.2) ;
-	}
 
 	void printItemAttributes () 
 	{

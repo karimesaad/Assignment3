@@ -8,16 +8,8 @@ public class Item
 	protected int weight;
 	
 
-//  Constructor
+// You will need a constructor (Why?). Create it here.
 	
-public Item(String name, float price, int quantity, int weight) {
-		super();
-		this.name = name;
-		this.price = price;
-		this.quantity = quantity;
-		this.weight = weight;
-	}
-
 //  Getters and Setters
 	
 	public String getName() {
@@ -61,13 +53,6 @@ public Item(String name, float price, int quantity, int weight) {
 		return final_price;
 	}
 	
-	float standardShipping(){
-		return (20 * weight) * quantity;
-	}
-	
-	float premiumShipping(){
-		return (float) ((standardShipping()) * 0.2) ;
-	}
 
 	void printItemAttributes () 
 	{
