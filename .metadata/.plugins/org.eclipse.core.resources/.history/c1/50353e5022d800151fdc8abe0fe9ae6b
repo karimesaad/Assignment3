@@ -13,7 +13,7 @@ public class Electronics extends Item
 	
 	float calculatePrice() {
 		float final_price = 0;
-		final_price = super.calculatePrice();
+		final_price = super();
 		if(fragile == true) {
 			final_price += premiumShipping();
 		}
@@ -29,7 +29,7 @@ public class Electronics extends Item
 			return 0;
 		}
 		else {
-			return super.calculateTax();
+			return super();
 		}
 	}
 	
@@ -41,7 +41,7 @@ public class Electronics extends Item
 	}
 	
 	void printItemAttributes() {
-		super.printItemAttributes();
+		super();
 		System.out.println("Fragile: " + getFragility());
 		System.out.println("Shipping State: " + state);
 	}
