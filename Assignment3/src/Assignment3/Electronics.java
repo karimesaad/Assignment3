@@ -2,11 +2,14 @@ package Assignment3;
 
 public class Electronics extends Item 
 {
-	boolean fragile;
+	String fragile;
 	String state;
 	
-	Electronics(String name, float price, int quantity, int weight, boolean fCheck, String shipState) {
+	Electronics(String name, float price, int quantity, int weight, String fCheck, String shipState) {
 		super(name, price, quantity, weight);
+		if(!fCheck.equals("F") && !fCheck.equals("NF")) {
+			throw new IllegalArgumentException("Invalid Fragility");
+		}
 		fragile = fCheck;
 		state = shipState;
 	}
@@ -14,13 +17,13 @@ public class Electronics extends Item
 	float calculatePrice() {
 		float final_price = 0;
 		final_price = super.calculatePrice();
-		if(fragile == true) {
+		if(fragile.equals("F")) {
 			final_price += premiumShipping();
 		}
 		else {
 			final_price += standardShipping();
 		}
-		final_price += calculateTax();
+		final_price += calculateTax(state);
 		return final_price;
 	}
 	
@@ -34,7 +37,7 @@ public class Electronics extends Item
 	}
 	
 	String getFragility() {
-		if(fragile == true){
+		if(fragile.equals("F")){
 			return "Yes";
 		}
 		return "No";

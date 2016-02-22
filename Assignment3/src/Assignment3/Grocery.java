@@ -2,10 +2,13 @@ package Assignment3;
 
 public class Grocery extends Item {
 	//variables, constructor here
-	boolean perishable;
+	String perishable;
 	
-	Grocery(String name, float price, int quantity, int weight, boolean pCheck) {
+	Grocery(String name, float price, int quantity, int weight, String pCheck) {
 		super(name, price, quantity, weight);
+		if(!pCheck.equals("P") && !pCheck.equals("NP")) {
+			throw new IllegalArgumentException("Invalid Perishability");
+		}
 		perishable = pCheck;
 
 	}
@@ -13,7 +16,7 @@ public class Grocery extends Item {
 	float calculatePrice() {
 		float final_price = 0;
 		final_price = super.calculatePrice();
-		if(perishable == true) {
+		if(perishable.equals("P")) {
 			final_price += premiumShipping();
 		}
 		else {
@@ -23,7 +26,7 @@ public class Grocery extends Item {
 	}
 	
 	String getPerishability() {
-		if(perishable == true) {
+		if(perishable.equals("P")) {
 			return "Yes";
 		}
 		return "No";
