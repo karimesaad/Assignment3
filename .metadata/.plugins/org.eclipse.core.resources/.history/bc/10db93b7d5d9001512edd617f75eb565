@@ -7,7 +7,7 @@ public class Grocery extends Item {
 	Grocery(String name, float price, int quantity, int weight, String pCheck) {
 		super(name, price, quantity, weight);
 		if(!pCheck.equals("P") && !pCheck.equals("NP")) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid Perishability");
 		}
 		perishable = pCheck;
 

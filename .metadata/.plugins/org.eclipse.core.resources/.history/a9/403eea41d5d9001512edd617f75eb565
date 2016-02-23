@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.*;
 
 public class ShoppingCartDriver {
@@ -58,16 +59,15 @@ public class ShoppingCartDriver {
 		else {
 			System.out.println("Invalid Command");
 		}
-		
 		Collections.sort(shoppingCart, new ShoppingCompare());
 	}
 	
 	public void insert(String[] input) {
-		try {
-			if(input[1].equals("clothing")) {
-				if(input.length != 6) {
-					throw new IllegalArgumentException();
-				}
+		if(input[1].equals("clothing")) {
+			if(input.length != 6) {
+				throw new IllegalArgumentException("Invalid len C insert command");
+			}
+			try {
 				String name = input[2];
 				float price = Float.parseFloat(input[3]);
 				int quantity = Integer.parseInt(input[4]);
@@ -75,10 +75,18 @@ public class ShoppingCartDriver {
 				Clothing insertClothing = new Clothing(name, price, quantity, weight);
 				shoppingCart.add(insertClothing);
 			}
-			else if (input[1].equals("electronics")) {
-				if(input.length != 8) {
-					throw new IllegalArgumentException();
-				}
+			catch (NumberFormatException e) {
+				System.out.println("Invalid numformat C insert command");
+			}
+			catch (IllegalArgumentException ee) {
+				System.out.println("Invalid illarg C insert command");
+			}
+		}
+		else if (input[1].equals("electronics")) {
+			if(input.length != 8) {
+				throw new IllegalArgumentException("Invalid len E insert command");
+			}
+			try {
 				String name = input[2];
 				float price = Float.parseFloat(input[3]);
 				int quantity = Integer.parseInt(input[4]);
@@ -88,10 +96,18 @@ public class ShoppingCartDriver {
 				Electronics insertElec = new Electronics(name, price, quantity, weight, fragility, state);
 				shoppingCart.add(insertElec);
 			}
-			else if(input[1].equals("groceries")) {
-				if(input.length != 7) {
-					throw new IllegalArgumentException();
-				}
+			catch (NumberFormatException e) {
+				System.out.println("Invalid numfor E insert command");
+			}
+			catch (IllegalArgumentException ee) {
+				System.out.println("Invalid ilegalarg E insert command");
+			}
+		}
+		else if(input[1].equals("groceries")) {
+			if(input.length != 7) {
+				throw new IllegalArgumentException("Invalid len G insert command");
+			}
+			try {
 				String name = input[2];
 				float price = Float.parseFloat(input[3]);
 				int quantity = Integer.parseInt(input[4]);
@@ -100,12 +116,12 @@ public class ShoppingCartDriver {
 				Grocery insertGroc = new Grocery(name, price, quantity, weight, perishability);
 				shoppingCart.add(insertGroc);
 			}
-		}
-		catch (NumberFormatException e) {
-			System.out.println("Number Format Exception");
-		}
-		catch (IllegalArgumentException ee) {
-			System.out.println("Illegal Argument Exception");
+			catch (NumberFormatException e) {
+				System.out.println("Invalid numfor G insert command");
+			}
+			catch (IllegalArgumentException ee) {
+				System.out.println("Invalid illarg G insert command");
+			}
 		}
 	}
 	

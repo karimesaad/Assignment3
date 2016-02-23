@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.*;
 
 public class ShoppingCartDriver {
@@ -105,7 +106,7 @@ public class ShoppingCartDriver {
 			System.out.println("Number Format Exception");
 		}
 		catch (IllegalArgumentException ee) {
-			System.out.println("Illegal Argument Exception");
+			System.out.println("Illegal Argument Exception")
 		}
 	}
 	

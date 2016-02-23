@@ -13,7 +13,7 @@ public class Electronics extends Item
 	Electronics(String name, float price, int quantity, int weight, String fCheck, String shipState) {
 		super(name, price, quantity, weight);
 		if((!fCheck.equals("F") && !fCheck.equals("NF")) || !validState(shipState)) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Invalid Fragility");
 		}
 		fragile = fCheck;
 		state = shipState;
