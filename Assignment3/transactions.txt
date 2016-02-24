@@ -1,2 +1,2 @@
-insert electronics PS3 300 1 5 F ZZ
+insert electronics PS3 300 1 5 F TX
 print

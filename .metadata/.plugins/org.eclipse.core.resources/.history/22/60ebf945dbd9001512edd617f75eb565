@@ -1,0 +1,31 @@
+//Jiwhan Son, Karime Saad
+//js78978, ks38728
+//EE422C - Assignment 3
+
+package Assignment3;
+
+public class Clothing extends Item 
+{
+	// variables, constructors as necessary
+	
+	public Clothing(String name, float price, int quantity, int weight) {
+		super(name, price, quantity, weight);
+	}
+
+	/*
+	 * @return 	the total price of the clothing
+	 */
+	float calculatePrice () 
+	{
+		float final_price = 0;
+		final_price = super.calculatePrice() + standardShipping() + calculateTax();
+		return final_price;
+	}
+	
+	
+	/*void printItemAttributes () 
+	{
+		//Print all applicable attributes of this sub-class
+	}
+	*/
+}

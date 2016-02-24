@@ -1,3 +1,13 @@
+//Jiwhan Son, Karime Saad
+//js78978, ks38728
+//EE422C - Assignment 3
+
+/*
+ * Model for item class. Holds item attributes and calculates total cost of item.
+ * 
+ * @author	Jiwhan Son, Karime Saad
+ */
+
 package Assignment3;
 
 public class Item 
@@ -7,74 +17,80 @@ public class Item
 	protected int quantity;
 	protected int weight;
 	
-
-//  Constructor
-	
-public Item(String name, float price, int quantity, int weight) {
-	if(price < 0 || quantity < 0 || weight < 0) {
-		throw new IllegalArgumentException();
+	/*
+	 * Creates an item with initial parameters
+	 * 
+	 * @param	name		name of item
+	 * @param	price		price of item
+	 * @param	quantity	quantity of item
+	 * @param	weight		weight of the item
+	 */
+	public Item(String name, float price, int quantity, int weight) {
+		if(price < 0 || quantity < 0 || weight < 0) {
+			throw new IllegalArgumentException();
+		}
+			this.name = name;
+			this.price = price;
+			this.quantity = quantity;
+			this.weight = weight;
 	}
-		this.name = name;
-		this.price = price;
-		this.quantity = quantity;
-		this.weight = weight;
-	}
-
-//  Getters and Setters
 	
+	/*
+	 * @return	name	name of item
+	 */
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
+	/*
+	 * @return	quantity	quantity of item
+	 */
 	public int getQuantity() {
 		return quantity;
 	}
 
+	/*
+	 * Updates the quantity of the item
+	 * 
+	 * @param	quantity	new quantity of item
+	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
-	public int getWeight() {
-		return weight;
-	}
-
-	public void setWeight(int weight) {
-		this.weight = weight;
-	}
-	
-	
-//  Class Methods
-	
+	/*
+	 * @return	final_price		the price of item w/o tax or shipping
+	 */
 	float calculatePrice () 
 	{
 		float final_price = quantity * price;
 		return final_price;
 	}
 	
+	/*
+	 * @return		the standard shipping cost of item
+	 */
 	float standardShipping(){
 		return (20 * weight * quantity);
 	}
 	
+	/*
+	 * @return		the premium shipping cost of item
+	 */
 	float premiumShipping(){
 		return (float) (standardShipping() * 1.2) ;
 	}
 
+	/*
+	 * @return		the tax on the item
+	 */
 	float calculateTax (){
 		return (float) (price * quantity * .1);
 	}
 	
+	/*
+	 * Prints all the attributes of the item
+	 */
 	void printItemAttributes () 
 	{
 		System.out.println("Name: " + name);
@@ -82,8 +98,5 @@ public Item(String name, float price, int quantity, int weight) {
 		System.out.println("Quantity: " + quantity);
 		System.out.println("Weight: " + weight);
 		System.out.println("Total charge: " + calculatePrice());
-		
 	}
-
-
 }

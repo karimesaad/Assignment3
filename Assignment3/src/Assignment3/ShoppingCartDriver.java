@@ -1,3 +1,13 @@
+//Jiwhan Son, Karime Saad
+//js78978, ks38728
+//EE422C - Assignment 3
+
+/*
+ * Main driver for Item class. Will carry out shopping cart actions
+ * 
+ * @author	Jiwhan Son, Karime Saad
+ */
+
 package Assignment3;
 
 import java.io.BufferedReader;
@@ -39,6 +49,11 @@ public class ShoppingCartDriver {
 		}
 	}
 
+	/*
+	 * Determines which shopping cart command to take. 
+	 * 
+	 * @param	s	input from text file
+	 */
 	private void transaction(String s) {
 		String[] input = s.split("\\s+");
 		if(input[0].toLowerCase().equals("insert"))
@@ -62,6 +77,11 @@ public class ShoppingCartDriver {
 		Collections.sort(shoppingCart, new ShoppingCompare());
 	}
 	
+	/*
+	 * Inserts an item into the shopping cart
+	 * 
+	 * @param	input	input from text file
+	 */
 	public void insert(String[] input) {
 		try {
 			if(input[1].equals("clothing")) {
@@ -109,6 +129,11 @@ public class ShoppingCartDriver {
 		}
 	}
 	
+	/*
+	 * Searches for an item in the shopping cart
+	 * 
+	 * @param	intput	input from text file
+	 */
 	public void search(String[] input) {
 		if(input.length != 2 || !(input[1] instanceof String)) {
 			throw new IllegalArgumentException("Invalid search command");
@@ -121,9 +146,14 @@ public class ShoppingCartDriver {
 				totalNumber += temp.getQuantity();
 			}
 		}
-		System.out.println("Found " + totalNumber + " objects with name: " + input[1]);
+		System.out.println("Found " + totalNumber + " object(s) with name: " + input[1]);
 	}
 	
+	/*
+	 * Deletes an item from the shopping cart
+	 * 
+	 * @param	input	input from text file
+	 */
 	public void delete(String[] input) {
 		if(input.length != 2 || !(input[1] instanceof String)) {
 			throw new IllegalArgumentException("Invalid delete command");
@@ -137,9 +167,14 @@ public class ShoppingCartDriver {
 				i.remove();
 			}
 		}
-		System.out.println("Deleted " + totalNumber + " objects with name: " + input[1]);
+		System.out.println("Deleted " + totalNumber + " object(s) with name: " + input[1]);
 	}
 	
+	/*
+	 * Updates a quantity of an item in the shopping cart
+	 * 
+	 * @param	input	input from text file
+	 */
 	public void update(String[] input) {
 		if(input.length != 3 || !(input[1] instanceof String)) {
 			System.out.println("Invalid update command");
@@ -164,6 +199,9 @@ public class ShoppingCartDriver {
 		System.out.println("Did not find object with name " + input[1]);		
 	}
 	
+	/*
+	 * Prints the attributes of all items in the shopping cart
+	 */
 	public void print() {		
 		Iterator<Item> i = shoppingCart.iterator();
 		float totalCharge = 0;
@@ -181,6 +219,13 @@ public class ShoppingCartDriver {
 	}		
 }
 
+/*
+ * Used to sort the shopping cart by item name
+ * 
+ * @param	item1	an item in the cart
+ * @param	item2	a different item in the cart
+ * @return			integer value used to determine order
+ */
 class ShoppingCompare implements Comparator<Item> {
 	public int compare(Item item1, Item item2) {
 		return item1.getName().compareTo(item2.getName());
