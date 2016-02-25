@@ -213,7 +213,7 @@ public class ShoppingCartDriver {
 			temp.printItemAttributes();
 			System.out.println();
 		}
-		System.out.printf("Total Cart Charge: $%.2f", totalCharge);
+		System.out.println("Total Cart Charge: " + totalCharge);
 	}
 	
 	/*
@@ -245,3 +245,5 @@ class ShoppingCompare implements Comparator<Item> {
 		return item1.getName().compareTo(item2.getName());
 	}
 }
+
+

@@ -94,9 +94,9 @@ public class Item
 	void printItemAttributes () 
 	{
 		System.out.println("Name: " + name);
-		System.out.printf("Price: $%.2f \n", price);
+		System.out.println("Price: " + price);
 		System.out.println("Quantity: " + quantity);
 		System.out.println("Weight: " + weight);
-		System.out.printf("Total charge: $%.2f\n", calculatePrice());
+		System.out.println("Total charge: " + calculatePrice());
 	}
 }
